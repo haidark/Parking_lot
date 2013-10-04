@@ -1,4 +1,4 @@
 N02062147
 =========
 
-Parking lot occupancy measurement suing image processing
+Parking lot occupancy measurement using image processing
