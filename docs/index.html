@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-<h1>About the Project and Myself</h1>
+<h1>Measuring Parking Lot Occupancy using Image Processing</h1>
+<h2>About the Project and Myself</h2>
 
 <p>This project is part of the Embedded Linux course at the State University of New York at Suny New Paltz.
  It involves using a Raspberry Pi to report the occupancy of a parking lot/car park. The work done here
@@ -15,7 +15,7 @@ Although this project does not deal directly with this area, my other projects d
 <h1>Getting Set Up</h1>
 
 <p>Here I will go into details of what equipment is required and what software libraries will be used.
-Also a brief guide to setting upthe Raspberry Pi will be given here, more information can be found 
+Also a brief guide to setting up the Raspberry Pi will be given here, more information can be found 
 <a href="http://www.raspberrypi.org/wp-content/uploads/2012/04/quick-start-guide-v2_1.pdf">here</a>. </p>
 
 <h2>Equipment</h2>
@@ -29,7 +29,7 @@ Also a brief guide to setting upthe Raspberry Pi will be given here, more inform
 <li>PC</li>
 </ul>
 
-<h2>Software Libraries<h2>
+<h2>Software Libraries</h2>
 
 <ul>
 <li>OpenCV (python)</li>
@@ -46,16 +46,33 @@ Also a brief guide to setting upthe Raspberry Pi will be given here, more inform
 <li>Connect peripherals to Raspberry Pi</li>
 <li>You can use any OS you want, I used Raspbian</li>
 <li>Connect your Pi to the internet, update your package manager.</li>
-<li>Install an SSH server to use the Pi's headlessly</li>
+<li>Install an SSH server to use the RPi headlessly</li>
 </ol>
 
-<h2>Installing OpenCV Libraries on RPi and Compiling<h2>
+<h2>Installing OpenCV-Python Libraries on RPi</h2>
+
+<ol>
+<li>Update your package manager: <i>sudo apt-get update</i>
+<li>install OpenCV for python: <i>sudo apt-get install python-opencv</i></li>
+<li>Open python console: <i>python</i></li>
+<li>Then check if it installed: <i>import cv2</i></li>
+<li>If you see an error, there is a problem with your python-opencv installation</li>
+</ol>
+
+<h2>Compiling from Source</h2>
 
 <ol>
 <li>step 1</li>
 <li>step 2</li>
 <li>step 2</li>
 </ol>
+
+<h2>Project Limitations</h2>
+
+<p>This project takes advantage of the presence of static surveillance cameras that monitor many parking lots and car parks.
+Many of these cameras already exist in parking lots, so the footage from these cameras can be used to monitor parking lot occupancy.
+The techniques used here will <b>NOT</b> work with a camera that is not static, meaning during the course of capture, the camera cannot move.
+Also, adverse lighting conditions will cause the measurements to be inaccurate and even fail.</p>
  
 
 </body>

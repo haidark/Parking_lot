@@ -3,7 +3,7 @@ import cv2
 
 imgBGR = cv2.imread('stop.jpg',1);
 cv2.imshow('image', imgBGR)
-cv2.waitKey(0)
+
 cv2.destroyAllWindows()
 
 imgHSV = cv2.cvtColor(imgBGR,cv2.COLOR_RGB2HSV)
