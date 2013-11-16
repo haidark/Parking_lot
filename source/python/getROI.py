@@ -1,6 +1,6 @@
 import numpy
 import cv2
-
+import pickle
 drawing = False
 gx,gy = -1,-1
 ROI = []
@@ -41,6 +41,11 @@ for r in ROI:
     cv2.imshow('image', cropped)
     cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+f = open('ROIs1.txt', 'w')
+pickle.dump(ROI, f);
+f.close()
+
 
 
 
