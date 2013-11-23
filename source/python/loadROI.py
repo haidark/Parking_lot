@@ -1,13 +1,21 @@
 import numpy
 import cv2
 import pickle
+import os
 
+print os.name
 def cls(): print "\n" * 100
 
-f = open('ROIs1.txt', 'r');
+f = open('ROIs.txt', 'r');
 ROI = pickle.load(f);
 f.close();
-origIMG = cv2.imread('C:\Users\Haidar\Documents\GitHub\N02062147\data\empty1.jpg',1);
+if os.name == 'nt':
+	origIMG = cv2.imread('..\..\data\empty1.jpg',1);
+	video = cv2.VideoCapture('..\..\data\carParkFootage.mp4')
+else:
+	origIMG = cv2.imread('../../data/empty1.jpg',1);
+	video = cv2.VideoCapture('../../data/carParkFootage.mp4')	
+#video = cv2.VideoCapture(0)
 templateEdges = [];
 #Pre load and precompute templates and template edges
 for r in ROI:
@@ -17,9 +25,6 @@ for r in ROI:
     templateEdges.append(cv2.Canny(template, 100, 200))
 
 
-
-video = cv2.VideoCapture('C:\Users\Haidar\Documents\GitHub\N02062147\data\carParkFootage.mp4')
-#video = cv2.VideoCapture(0)
 i = 0;
 while True:
     

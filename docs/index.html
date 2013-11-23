@@ -60,7 +60,7 @@ Also a brief guide to setting up the Raspberry Pi will be given here, more infor
 		<li>Start a vnc server - "vncserver :0 -geometry 1920x1080 -depth 24"</li>
 		<li>to start the server on boot place the file "docs/vncboot" in "/etc/init.d"</li>
 		<li>Set the permissions for the file - "chmod 755 /etc/init.d/vncboot"</li>
-		<li>Enable dependency based boot sequencing - "update-rc.d /etc/init.d/vncboot defaults"</li>
+		<li>Enable dependency based boot sequencing - "update-rc.d vncboot defaults"</li>
 		<li>Use a VNC client to connect to the Raspberry Pi VNC server</li>
 	</ol>
 </ol>

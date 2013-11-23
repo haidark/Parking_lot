@@ -1,6 +1,9 @@
 import numpy
 import cv2
 import pickle
+import os
+
+print os.name
 drawing = False
 gx,gy = -1,-1
 ROI = []
@@ -23,9 +26,13 @@ def draw_ROI(event,x,y,flags,param):
         drawing = False
         cv2.rectangle(imgBGR,(gx,gy),(x,y),(0,0,255),2)
         ROI.append((gx,gy,x,y));
-
-imgBGR = cv2.imread('C:\Users\Haidar\Documents\GitHub\N02062147\data\empty1.jpg',1);
-origIMG = cv2.imread('C:\Users\Haidar\Documents\GitHub\N02062147\data\empty1.jpg',1);
+#check operating system
+if os.name == 'nt':
+	imgBGR = cv2.imread('..\..\data\empty1.jpg',1);
+	origIMG = cv2.imread('..\..\data\empty1.jpg',1);
+else:
+	imgBGR = cv2.imread('../../data/empty1.jpg',1)
+	origIMG = cv2.imread('../../data/empty1.jpg',1)
 cv2.namedWindow('image')
 cv2.setMouseCallback('image', draw_ROI)
 
