@@ -14,10 +14,10 @@ def draw_ROI(event,x,y,flags,param):
         gx,gy = x,y
         cv2.line(imgBGR, (gx,gy), (x,y), (0,0,255), 2)
 
-    #elif event == cv2.EVENT_MOUSEMOVE:
-        #if drawing == True:
-            #cv2.rectangle(imgBGR,(gx,gy),(x,y),(0,255,0),-1)
-
+##    elif event == cv2.EVENT_MOUSEMOVE:       
+##        if drawing == True:
+##            cv2.rectangle(imgBGR,(gx,gy),(x,y),(0,255,0))
+            
 
     elif event == cv2.EVENT_LBUTTONUP:
         drawing = False
@@ -34,13 +34,13 @@ while(1):
     k = cv2.waitKey(1) & 0xFF
     if k == 27:
         break
-
-for r in ROI:
-    (x1,y1,x2,y2) = r
-    cropped = origIMG[y1:y2,x1:x2, :]
-    cv2.imshow('image', cropped)
-    cv2.waitKey(0)
 cv2.destroyAllWindows()
+##for r in ROI:
+##    (x1,y1,x2,y2) = r
+##    cropped = origIMG[y1:y2,x1:x2, :]
+##    cv2.imshow('image', cropped)
+##    cv2.waitKey(0)
+##cv2.destroyAllWindows()
 
 f = open('ROIs1.txt', 'w')
 pickle.dump(ROI, f);
