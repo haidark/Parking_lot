@@ -3,7 +3,10 @@ import cv2
 import pickle
 import os
 
-print os.name
+Win = False
+if os.name == 'nt':
+	Win = True
+
 drawing = False
 gx,gy = -1,-1
 ROI = []
@@ -27,7 +30,7 @@ def draw_ROI(event,x,y,flags,param):
         cv2.rectangle(imgBGR,(gx,gy),(x,y),(0,0,255),2)
         ROI.append((gx,gy,x,y));
 #check operating system
-if os.name == 'nt':
+if Win:
 	imgBGR = cv2.imread('..\..\data\empty1.jpg',1);
 	origIMG = cv2.imread('..\..\data\empty1.jpg',1);
 else:
