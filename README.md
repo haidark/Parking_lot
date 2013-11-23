@@ -51,7 +51,11 @@ Progress:
 			currently using simple image subtraction
 			TO DO: use Canny edge or HOG or SIFT
 
-
+11/23/13 - changed from simple image subtraction to extracting features with canny edge
+			Then features are compared between template and new image
+			implemented percentage change thresholding for comparison
+			commented code
+			TO DO: get better ROIs
 
 
 

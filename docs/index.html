@@ -46,7 +46,23 @@ Also a brief guide to setting up the Raspberry Pi will be given here, more infor
 <li>Connect peripherals to Raspberry Pi</li>
 <li>You can use any OS you want, I used Raspbian</li>
 <li>Connect your Pi to the internet, update your package manager.</li>
-<li>Install an SSH server to use the RPi headlessly</li>
+<li>Install an SSH server to use the RPi headlessly (Raspbian)</li>
+	<ol>
+		<li>Log into Pi directly</li>
+		<li>Enter Raspberry Pi config - "sudo raspi-config"</li>
+		<li>Enable the SSH option</li>
+	</ol>
+<li>Install VNC server on raspberry Pi</li>
+	<ol>
+		<li>Log into Pi using SSH or directly</li>
+		<li>Install Tight VNC Package - "sudo apt-get install tightvncserver"</li>
+		<li>Run vnc server (enter a password) - "tightvncserver"</li>
+		<li>Start a vnc server - "vncserver :0 -geometry 1920x1080 -depth 24"</li>
+		<li>to start the server on boot place the file "docs/vncboot" in "/etc/init.d"</li>
+		<li>Set the permissions for the file - "chmod 755 /etc/init.d/vncboot"</li>
+		<li>Enable dependency based boot sequencing - "update-rc.d /etc/init.d/vncboot defaults"</li>
+		<li>Use a VNC client to connect to the Raspberry Pi VNC server</li>
+	</ol>
 </ol>
 
 <h2>Installing OpenCV-Python Libraries on RPi</h2>
