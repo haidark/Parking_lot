@@ -2,22 +2,23 @@ import numpy
 import cv2
 import pickle
 import os
+import sys
 
+if len(sys.argv) < 4:
+    print 'usage: loadROI.py <input ROI file> <empty lot image> <video file>'
+    sys.exit(2);
+
+#operating system flag
 Win = False
 if os.name == 'nt':
     Win = True
 
-f = open('ROIs.txt', 'r');
+f = open(sys.argv[1], 'r');
 ROI = pickle.load(f);
 f.close();
-#if windows
-if Win:
-    origIMG = cv2.imread('..\..\data\empty1.jpg',1);
-    video = cv2.VideoCapture('..\..\data\carParkFootage.mp4')
-#otherwises
-else:
-    origIMG = cv2.imread('../../data/empty1.JPG',1);
-    video = cv2.VideoCapture('../../data/carParkFootage.mp4')
+
+origIMG = cv2.imread(sys.argv[2], 1);
+video = cv2.VideoCapture(sys.argv[3])
 
 #uncomment this line to capture video from available cameras
 #video = cv2.VideoCapture(0)

@@ -55,12 +55,12 @@ Also a brief guide to setting up the Raspberry Pi will be given here, more infor
 <li>Install VNC server on raspberry Pi</li>
 	<ol>
 		<li>Log into Pi using SSH or directly</li>
-		<li>Install Tight VNC Package - "sudo apt-get install tightvncserver"</li>
-		<li>Run vnc server (enter a password) - "tightvncserver"</li>
-		<li>Start a vnc server - "vncserver :0 -geometry 1920x1080 -depth 24"</li>
-		<li>to start the server on boot place the file "docs/vncboot" in "/etc/init.d"</li>
-		<li>Set the permissions for the file - "chmod 755 /etc/init.d/vncboot"</li>
-		<li>Enable dependency based boot sequencing - "update-rc.d vncboot defaults"</li>
+		<li>Install Tight VNC Package - <i>sudo apt-get install tightvncserver</i></li>
+		<li>Run vnc server (enter a password) - <i>tightvncserver</i></li>
+		<li>Start a vnc server - <i>vncserver :0 -geometry 1920x1080 -depth 24</i></li>
+		<li>to start the server on boot place the file <i>docs/vncboot</i> in <i>/etc/init.d</i></li>
+		<li>Set the permissions for the file - <i>chmod 755 /etc/init.d/vncboot</i></li>
+		<li>Enable dependency based boot sequencing - <i>update-rc.d vncboot defaults</i></li>
 		<li>Use a VNC client to connect to the Raspberry Pi VNC server</li>
 	</ol>
 </ol>
@@ -69,17 +69,20 @@ Also a brief guide to setting up the Raspberry Pi will be given here, more infor
 
 <ol>
 <li>Update your package manager: <i>sudo apt-get update</i>
+<li>ffmpeg will need to be compiled with x264 for video processing - follow the steps
+<a href="https://trac.ffmpeg.org/wiki/UbuntuCompilationGuide">here</a></li>
 <li>install OpenCV for python: <i>sudo apt-get install python-opencv</i></li>
 <li>Open python console: <i>python</i></li>
 <li>Then check if it installed: <i>import cv2</i></li>
 <li>If you see an error, there is a problem with your python-opencv installation</li>
+
 </ol>
 
-<h2>Compiling from Source</h2>
+<h2>Running the Software</h2>
 
 <ol>
-<li>step 1</li>
-<li>step 2</li>
+<li>Python is an interpreted language, so compilation is not required.</li>
+<li>it is recommended that the file <i>getROI.py</i></li>
 <li>step 2</li>
 </ol>
 
