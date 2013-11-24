@@ -12,66 +12,69 @@
 My research interests are computer vision, specifically machine learning applications in computer vision.
 Although this project does not deal directly with this area, my other projects do.</p>
 
-<h1>Getting Set Up</h1>
+<h3>Quick note</h3>
+
+<p>Commands to be entered into a unix terminal are <i>italicized</i>. Paths and filenames are written in <b>bold</b></p>
+
+<h2>Getting Set Up</h2>
 
 <p>Here I will go into details of what equipment is required and what software libraries will be used.
 Also a brief guide to setting up the Raspberry Pi will be given here, more information can be found 
 <a href="http://www.raspberrypi.org/wp-content/uploads/2012/04/quick-start-guide-v2_1.pdf">here</a>. </p>
 
-<h2>Equipment</h2>
+<h3>Equipment</h3>
 
 <ul>
-<li>Raspberry Pi</li>
-<li>SD card - min. 4GB</li>
-<li>MicroUSB power adapter</li>
-<li>Ethernet cable or wireless adapter</li>
-<li>USB Webcam</li>
-<li>PC</li>
+	<li>Raspberry Pi</li>
+	<li>SD card - min. 4GB</li>
+	<li>MicroUSB power adapter</li>
+	<li>Ethernet cable or wireless adapter</li>
+	<li>USB Webcam</li>
+	<li>PC</li>
 </ul>
 
-<h2>Software Libraries</h2>
+<h3>Software Libraries</h3>
 
 <ul>
-<li>OpenCV (python)</li>
-<li>SimpleCV</li>
+	<li>OpenCV (python)</li>
 </ul>
 
-<h2>Setting up the Raspberry Pi (quick and dirty)</h2>
+<h3>Setting up the Raspberry Pi (quick and dirty)</h3>
 
 <ol>
-<li>Format your SD card using <a href="https://www.sdcard.org/downloads/formatter_4/eula_windows/">this tool</a></li>
-<li>Download New Out of Box Software (NOOBS) from <a href="http://www.downloads.raspberrypi.org/noobs">here</a></li>
-<li>Copy the (unzipped) files to your SD card</li>
-<li>Insert the SD card into the Raspberry Pi and power it up</li>
-<li>Connect peripherals to Raspberry Pi</li>
-<li>You can use any OS you want, I used Raspbian</li>
-<li>Connect your Pi to the internet, update your package manager.</li>
-<li>Install an SSH server to use the RPi headlessly (Raspbian)</li>
-	<ol>
-		<li>Log into Pi directly</li>
-		<li>Enter Raspberry Pi config - "sudo raspi-config"</li>
-		<li>Enable the SSH option</li>
-	</ol>
-<li>Install VNC server on raspberry Pi</li>
-	<ol>
-		<li>Log into Pi using SSH or directly</li>
-		<li>Install Tight VNC Package - <i>sudo apt-get install tightvncserver</i></li>
-		<li>Run vnc server (enter a password) - <i>tightvncserver</i></li>
-		<li>Start a vnc server - <i>vncserver :0 -geometry 1920x1080 -depth 24</i></li>
-		<li>to start the server on boot place the file <i>docs/vncboot</i> in <i>/etc/init.d</i></li>
-		<li>Set the permissions for the file - <i>chmod 755 /etc/init.d/vncboot</i></li>
-		<li>Enable dependency based boot sequencing - <i>update-rc.d vncboot defaults</i></li>
-		<li>Use a VNC client to connect to the Raspberry Pi VNC server</li>
-	</ol>
+	<li>Format your SD card using <a href="https://www.sdcard.org/downloads/formatter_4/eula_windows/">this tool</a></li>
+	<li>Download New Out of Box Software (NOOBS) from <a href="http://www.downloads.raspberrypi.org/noobs">here</a></li>
+	<li>Copy the (unzipped) files to your SD card</li>
+	<li>Insert the SD card into the Raspberry Pi and power it up</li>
+	<li>Connect peripherals to Raspberry Pi</li>
+	<li>You can use any OS you want, I used Raspbian</li>
+	<li>Connect your Pi to the internet, update your package manager.</li>
+	<li>Install an SSH server to use the RPi headlessly (Raspbian)</li>
+		<ol>
+			<li>Log into Pi directly</li>
+			<li>Enter Raspberry Pi config - "sudo raspi-config"</li>
+			<li>Enable the SSH option</li>
+		</ol>
+	<li>Install VNC server on raspberry Pi</li>
+		<ol>
+			<li>Log into Pi using SSH or directly</li>
+			<li>Install Tight VNC Package - <i>sudo apt-get install tightvncserver</i></li>
+			<li>Run vnc server (enter a password) - <i>tightvncserver</i></li>
+			<li>Start a vnc server - <i>vncserver :0 -geometry 1920x1080 -depth 24</i></li>
+			<li>to start the server on boot place the file <i>docs/vncboot</i> in <i>/etc/init.d</i></li>
+			<li>Set the permissions for the file - <i>chmod 755 /etc/init.d/vncboot</i></li>
+			<li>Enable dependency based boot sequencing - <i>update-rc.d vncboot defaults</i></li>
+			<li>Use a VNC client to connect to the Raspberry Pi VNC server</li>
+		</ol>
 </ol>
 
-<h2>Installing OpenCV-Python Libraries on RPi</h2>
+<h3>Installing OpenCV-Python Libraries on RPi</h3>
 
 <ol>
 <li>Update your package manager: <i>sudo apt-get update</i>
 <li>ffmpeg will need to be compiled with x264 for video processing - follow the steps
-<a href="https://trac.ffmpeg.org/wiki/UbuntuCompilationGuide">here</a></li>
-<li>install OpenCV for python: <i>sudo apt-get install python-opencv</i></li>
+<a href="https://trac.ffmpeg.org/wiki/UbuntuCompilationGuide">here</a>. (lengthy)</li>
+<li>Install OpenCV for python: <i>sudo apt-get install python-opencv</i></li>
 <li>Open python console: <i>python</i></li>
 <li>Then check if it installed: <i>import cv2</i></li>
 <li>If you see an error, there is a problem with your python-opencv installation</li>
@@ -80,13 +83,43 @@ Also a brief guide to setting up the Raspberry Pi will be given here, more infor
 
 <h2>Running the Software</h2>
 
+<p>Once everything is set up, running it is easy. 
+Python is an interpreted language, so compilation is not required.</p>
+
 <ol>
-<li>Python is an interpreted language, so compilation is not required.</li>
-<li>it is recommended that the file <i>getROI.py</i></li>
-<li>step 2</li>
+	<li>Log into Pi using VNC and clone the repository: <i>git clone https://github.com/haidark/N02062147.git</i></li>
+	<li>Navigate to <b>/N02062147/source/python</b> and run <b>getROI.py</b>: <i>python getROI.py ~empty lot image~ ~ROI output filename~ </i></li>
+	<ul>
+		<li>Use the GUI and mouse the draw a rectangle over each parking spot.</li>
+		<li>Make sure the Regions of Interest do not overlap or cover more than one parking spot.</li> 
+	</ul>
+	<li>After the ROIs have been saved in a file, you don't need VNC anymore.</li>
+	<li>Run <b>loadROI.py</b>: <i>python loadROI.py ~input ROI file~ ~empty lot image~ ~video file~ </i></li>
+	<li>Congratulations, you should see the status of each parking spot (occupied or unoccupied) in a CLI friendly way!</li>
 </ol>
 
-<h2>Project Limitations</h2>
+<h3>Project Theory</h3>
+
+<p>
+This project is extremely simple and naive in the terms of its use of computer vision techniques. 
+The program assumes a static video feed overlooking a parking lot.
+The user is asked to define rectangular regions which represent the individual parking spots.
+These regions are called regions of interest or ROIs. The program extracts the ROIs from an image of
+the parking lot when it is empty, performs Canny edge detection on them, and saves the resulting binary
+images as templates. Then the video is examined one frame at a time. 
+</p>
+<p>
+For each desired frame, the ROIs are again extracted and Canny edge detection is once 
+again performed. The absolute difference between the resulting binary image for each ROI and the corresponding 
+saved template is calculated. This "difference image" is normalized and a single value is extracted 
+(the number of TRUE-valued pixels). Then a threshold is calculated based on
+allowed percentage difference between the template and the new ROI to determine whether the parking spot
+is occupied or not. If the extracted difference value is higher than the allowed threshold, the parking spot
+is deemed to be occupied. Otherwise it is considered vacant. The threshold is based on the user defined allowed
+percentage difference and the size of the ROI.
+</p>
+
+<h3>Project Limitations</h3>
 
 <p>This project takes advantage of the presence of static surveillance cameras that monitor many parking lots and car parks.
 Many of these cameras already exist in parking lots, so the footage from these cameras can be used to monitor parking lot occupancy.
