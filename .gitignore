@@ -216,6 +216,6 @@ pip-log.txt
 
 #exclude videos (.mp4)
 *.mp4
-
+*.avi
 #exlude Thumbs.db
 Thumbs.db

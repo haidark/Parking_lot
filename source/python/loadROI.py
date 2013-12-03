@@ -19,17 +19,24 @@ f.close();
 
 origIMG = cv2.imread(sys.argv[2], 1);
 video = cv2.VideoCapture(sys.argv[3])
-
 #uncomment this line to capture video from available cameras
 #video = cv2.VideoCapture(0)
 
+if Win:
+	height , width , layers =  origIMG.shape
+	#outvideo = cv2.VideoWriter(sys.argv[3][0:len(sys.argv[3])-4] + '_garbage.avi', -1, 3, (width, height));
+
+
 templateEdges = [];
 #Preload templates and precompute template edges
+
 for r in ROI:
     (x1,y1,x2,y2) = r
     template = origIMG[y1:y2,x1:x2, :]
     template = cv2.cvtColor(template, cv2.COLOR_RGB2GRAY)
-    templateEdges.append(cv2.Canny(template, 100, 200))
+    templateEdges.append(cv2.Canny(template, 100, 200))    
+    
+
 
 #main loop
 i = 0;
@@ -74,9 +81,10 @@ while True:
         if Win:
             #show the next frame in the image
             cv2.imshow('video', img)
+            #outvideo.write(img)
         else:
             #clear the screen
-            os.system('cls')
+            os.system('clr')
 
     if (0xFF & cv2.waitKey(5) == 27) | (ret == False):
         break
@@ -85,6 +93,7 @@ while True:
 
 if Win:
     cv2.destroyAllWindows()
+    #outvideo.release()
 
 
 
