@@ -56,6 +56,8 @@ Progress:
 			implemented percentage change thresholding for comparison
 			commented code
 			TO DO: get better ROIs
+12/4/13 - Finished up project, added command line arguments and OS compatibility changes
+            implemented percent change thresholding
 
 
 
